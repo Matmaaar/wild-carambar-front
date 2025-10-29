@@ -1,11 +1,50 @@
-
 body {
   background-color: #fedb26;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
 
 .logo {
   width: 400px;
   margin-bottom: 20px;
-  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-nav {
+  gap: 10px;
+  background-color: #e10179;
+  padding-block: 10px;
+  padding-inline: 20px;
+  border-radius: 5px;
+  border: none;
+  margin-inline: 10px;
+  color: white;
+}
+
+.btn-nav:hover {
+  background-color: #c80066;
+  cursor: pointer;
+}
+
+.question {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.answer {
+  margin-bottom: 10px;
+}
+
+li {
+  list-style-type: none;
 }

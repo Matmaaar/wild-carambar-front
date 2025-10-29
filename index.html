@@ -14,10 +14,35 @@
   </head>
   <body>
   <main>
+    <div class="header">
     <img class="logo" src="assets/img/logo-carambar.png" alt="Wild Carambar Logo" />
-    <p id="question"></p>
-    <p id="reponse"></p>
-    <button id="btn">Nouvelle blague</button>
+    </div>
+    <div class="navbar">
+      <button id="random" class="btn-nav">Blague aléatoire</a>
+      <button id="all" class="btn-nav">Toute les blagues</a>
+      <button id="add" class="btn-nav">Ajouter une blague</a>
+    </div>
+
+    <!-- Section 1 : Blague aléatoire -->
+ <section id="random-section" class="hidden">
+      <p id="question" class="question">etstetst</p>
+      <p id="answer" class="answer"></p>
+    </section>
+
+    <!-- Section 2 : Toutes les blagues -->
+    <section id="all-section" class="hidden">
+      <ul id="blagues-list"></ul>
+    </section>
+
+    <!-- Section 3 : Ajouter une blague -->
+    <section id="add-section" class="hidden">
+      <form id="add-form">
+        <input type="text" id="new-question" placeholder="Question" required />
+        <input type="text" id="new-reponse" placeholder="Réponse" required />
+        <button type="submit">Ajouter</button>
+      </form>
+      <p id="add-message"></p>
+    </section>
   </main>
 
   <script src="script.js"></script>
