@@ -1,0 +1,11 @@
+
+body {
+  background-color: #fedb26;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  width: 400px;
+  margin-bottom: 20px;
+  align-items: center;
+}
