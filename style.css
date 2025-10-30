@@ -5,6 +5,10 @@ body {
   justify-content: center;
 }
 
+main {
+  width: 800px;
+  text-align: center;
+}
 .header {
   display: flex;
   justify-content: center;
@@ -13,7 +17,7 @@ body {
 
 .logo {
   width: 400px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .hidden {
@@ -29,6 +33,7 @@ body {
   border: none;
   margin-inline: 10px;
   color: white;
+  width: 160px;
 }
 
 .btn-nav:hover {
@@ -47,4 +52,60 @@ body {
 
 li {
   list-style-type: none;
+}
+
+#question {
+  font-weight: bold;
+  font-size: 30px;
+  color: #04153B;
+}
+
+#answer {
+  font-size: 24px;
+}
+
+h1 {
+  margin-top: 20px;
+  color: #04153B;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.btn {
+  background-color: white;
+  color: #04153B;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 160px;
+}
+
+.joke {
+  height: 140px;
+}
+
+input, textarea {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#add-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  color: #04153B;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#blagues-list {
+  margin-top: 20px;
+  padding: 0px
 }

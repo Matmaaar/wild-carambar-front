@@ -19,27 +19,34 @@
     </div>
     <div class="navbar">
       <button id="random" class="btn-nav">Blague aléatoire</a>
-      <button id="all" class="btn-nav">Toute les blagues</a>
+      <button id="all" class="btn-nav">Toutes les blagues</a>
       <button id="add" class="btn-nav">Ajouter une blague</a>
     </div>
 
     <!-- Section 1 : Blague aléatoire -->
- <section id="random-section" class="hidden">
-      <p id="question" class="question">etstetst</p>
-      <p id="answer" class="answer"></p>
+ <section id="random-section" class="">
+  <h1> Hmmm ? 🤔</h1>
+  <div class="joke">
+      <p id="question" class="question">Quelle est la femelle du hamster ?</p>
+      <p id="answer" class="answer hidden">L’Amsterdam</p>
+      </div>
+      <button id="reveal-answer" class="btn">Voir la réponse</button>
+      <button id="new-random" class="btn hidden">Nouvelle blague</button>
     </section>
 
     <!-- Section 2 : Toutes les blagues -->
     <section id="all-section" class="hidden">
+      <h1>Toutes les blagues.</h1>
       <ul id="blagues-list"></ul>
     </section>
 
     <!-- Section 3 : Ajouter une blague -->
     <section id="add-section" class="hidden">
+      <h1>Écris ta blague pour l’ajouter à la liste.</h1>
       <form id="add-form">
         <input type="text" id="new-question" placeholder="Question" required />
         <input type="text" id="new-reponse" placeholder="Réponse" required />
-        <button type="submit">Ajouter</button>
+        <button class="btn" type="submit">Ajouter</button>
       </form>
       <p id="add-message"></p>
     </section>

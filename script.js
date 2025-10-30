@@ -7,6 +7,8 @@ const sections = document.querySelectorAll("section");
 const blaguesList = document.getElementById("blagues-list");
 const addForm = document.getElementById("add-form");
 const message = document.getElementById("add-message");
+const revealBtn = document.getElementById("reveal-answer");
+const newRandomBtn = document.getElementById("new-random");
 
 const API_URL_RANDOM = "http://localhost:5000/api/v1/blagues/random";
 const API_URL_ALL = "http://localhost:5000/api/v1/blagues";
@@ -19,11 +21,18 @@ function showSection(sectionId) {
 }
 
 // Navigation
-randomBtn.addEventListener("click", () => showSection("random-section"));
+randomBtn.addEventListener("click", () => {showSection("random-section");
+  document.getElementById("answer").classList.add("hidden");
+  revealBtn.classList.remove("hidden");
+  newRandomBtn.classList.add("hidden");
+
+});
+
 allBtn.addEventListener("click", () => {
   showSection("all-section");
   getAllBlagues();
 });
+
 addBtn.addEventListener("click", () => showSection("add-section"));
 
 // RANDOM
@@ -42,6 +51,23 @@ async function getRandomBlague() {
 }
 
 randomBtn.addEventListener("click", getRandomBlague);
+
+
+revealBtn.addEventListener("click", () => { document.getElementById("answer").classList.remove("hidden");
+  revealBtn.classList.add("hidden");
+  newRandomBtn.classList.remove("hidden");
+});
+
+
+newRandomBtn.addEventListener("click", () => {
+  document.getElementById("answer").classList.add("hidden");
+  getRandomBlague();
+  revealBtn.classList.remove("hidden");
+  newRandomBtn.classList.add("hidden");
+});
+
+
+
 
 // ALL
 
@@ -67,8 +93,6 @@ async function getAllBlagues() {
     console.error(err);
   }
 }
-
-allBtn.addEventListener("click", getAllBlagues);
 
 
 
@@ -98,4 +122,11 @@ addForm.addEventListener("submit", async (e) => {
     console.error("Erreur :", err);
     message.textContent = "Erreur de connexion au serveur.";
   }
+});
+
+
+// Au chargement de la page, afficher la section random et récupérer une blague
+document.addEventListener('DOMContentLoaded', () => {
+  showSection('random-section');
+  getRandomBlague();
 });
