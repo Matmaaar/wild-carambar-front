@@ -10,9 +10,9 @@ const message = document.getElementById("add-message");
 const revealBtn = document.getElementById("reveal-answer");
 const newRandomBtn = document.getElementById("new-random");
 
-const API_URL_RANDOM = "http://localhost:5000/api/v1/blagues/random";
-const API_URL_ALL = "http://localhost:5000/api/v1/blagues";
-const API_URL_ADD = "http://localhost:5000/api/v1/blagues";
+const API_URL_RANDOM = "https://wild-carambar-back.onrender.com/api/v1/blagues/random";
+const API_URL_ALL = "https://wild-carambar-back.onrender.com/api/v1/blagues";
+const API_URL_ADD = "https://wild-carambar-back.onrender.com/api/v1/blagues";
 
 function showSection(sectionId) {
   document;
@@ -21,11 +21,11 @@ function showSection(sectionId) {
 }
 
 // Navigation
-randomBtn.addEventListener("click", () => {showSection("random-section");
+randomBtn.addEventListener("click", () => {
+  showSection("random-section");
   document.getElementById("answer").classList.add("hidden");
   revealBtn.classList.remove("hidden");
   newRandomBtn.classList.add("hidden");
-
 });
 
 allBtn.addEventListener("click", () => {
@@ -52,12 +52,11 @@ async function getRandomBlague() {
 
 randomBtn.addEventListener("click", getRandomBlague);
 
-
-revealBtn.addEventListener("click", () => { document.getElementById("answer").classList.remove("hidden");
+revealBtn.addEventListener("click", () => {
+  document.getElementById("answer").classList.remove("hidden");
   revealBtn.classList.add("hidden");
   newRandomBtn.classList.remove("hidden");
 });
-
 
 newRandomBtn.addEventListener("click", () => {
   document.getElementById("answer").classList.add("hidden");
@@ -65,9 +64,6 @@ newRandomBtn.addEventListener("click", () => {
   revealBtn.classList.remove("hidden");
   newRandomBtn.classList.add("hidden");
 });
-
-
-
 
 // ALL
 
@@ -78,10 +74,10 @@ async function getAllBlagues() {
     const data = await response.json();
 
     data.forEach((blague) => {
-      const liQuestion = document.createElement("li")
-      liQuestion.classList.add('question');
+      const liQuestion = document.createElement("li");
+      liQuestion.classList.add("question");
       const liAnswer = document.createElement("li");
-      liAnswer.classList.add('answer');
+      liAnswer.classList.add("answer");
       liQuestion.textContent = `${blague.question}`;
       liAnswer.textContent = `${blague.reponse}`;
       blaguesList.appendChild(liQuestion);
@@ -93,8 +89,6 @@ async function getAllBlagues() {
     console.error(err);
   }
 }
-
-
 
 addForm.addEventListener("submit", async (e) => {
   e.preventDefault(); // empêche le rechargement de la page
@@ -108,8 +102,8 @@ addForm.addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         question: questionValue,
-        reponse: reponseValue
-      })
+        reponse: reponseValue,
+      }),
     });
 
     if (response.ok) {
@@ -124,9 +118,8 @@ addForm.addEventListener("submit", async (e) => {
   }
 });
 
-
 // Au chargement de la page, afficher la section random et récupérer une blague
-document.addEventListener('DOMContentLoaded', () => {
-  showSection('random-section');
+document.addEventListener("DOMContentLoaded", () => {
+  showSection("random-section");
   getRandomBlague();
 });
