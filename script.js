@@ -11,8 +11,7 @@ const revealBtn = document.getElementById("reveal-answer");
 const newRandomBtn = document.getElementById("new-random");
 
 const API_URL_RANDOM = "https://wild-carambar-back.onrender.com/api/v1/blagues/random";
-const API_URL_ALL = "https://wild-carambar-back.onrender.com/api/v1/blagues";
-const API_URL_ADD = "https://wild-carambar-back.onrender.com/api/v1/blagues";
+const API_URL = "https://wild-carambar-back.onrender.com/api/v1/blagues";
 
 function showSection(sectionId) {
   document;
@@ -70,7 +69,7 @@ newRandomBtn.addEventListener("click", () => {
 async function getAllBlagues() {
   try {
     blaguesList.innerHTML = "";
-    const response = await fetch(API_URL_ALL);
+    const response = await fetch(API_URL);
     const data = await response.json();
 
     data.forEach((blague) => {
@@ -90,6 +89,8 @@ async function getAllBlagues() {
   }
 }
 
+// FORM
+
 addForm.addEventListener("submit", async (e) => {
   e.preventDefault(); // empêche le rechargement de la page
 
@@ -97,7 +98,7 @@ addForm.addEventListener("submit", async (e) => {
   const reponseValue = document.getElementById("new-reponse").value;
 
   try {
-    const response = await fetch(API_URL_ADD, {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
